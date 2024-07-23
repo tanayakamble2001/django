@@ -1,0 +1,26 @@
+<h1>Employee List</h1>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Contact</th>
+        <th>Age</th>
+        <th>Address</th>
+        <th colspan="3">Action</th>
+    </tr>
+    {%for i in elist%}
+    <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.contact}}</td>
+        <td>{{i.age}}</td>
+        <td>{{i.address}}</td>
+        <td><a href="">Delete1</a></td>
+        <td><a href="">Delete2</a></td>
+        <td><a href="">Edit</a></td>
+    </tr>
+    {%endfor%}
+</table>
