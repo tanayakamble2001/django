@@ -18,9 +18,9 @@
         <td>{{i.contact}}</td>
         <td>{{i.age}}</td>
         <td>{{i.address}}</td>
-        <td><a href="">Delete1</a></td>
-        <td><a href="">Delete2</a></td>
-        <td><a href="">Edit</a></td>
+        <td><a href="delete1?id={{i.id}}">Delete1</a></td>
+        <td><a href="delete2/{{i.id}}">Delete2</a></td>
+        <td><a href="edit/{{i.id}}">Edit</a></td>
     </tr>
     {%endfor%}
 </table>

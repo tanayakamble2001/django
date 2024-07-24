@@ -24,4 +24,11 @@ urlpatterns = [
     path('addemp',v.add_emp),
     path('acc',v.add_account),
     path('emplist',v.emp_list),
+    path('delete1',v.delete_emp),
+    path('delete2/<int:eid>',v.delete2_emp),
+    path('edit/<int:eid>',v.edit_emp),
+    path('acclist',v.account_list),
+    path('acdelete',v.delete_acc),
+    path('acdelete2/<int:aid>',v.delete2_acc),
+    path('acedit/<int:aid>',v.edit_acc),
 ]

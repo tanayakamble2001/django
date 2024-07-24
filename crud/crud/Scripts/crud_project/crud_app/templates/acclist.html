@@ -1,0 +1,34 @@
+<h1>Account List</h1>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Salary</th>
+        <th>Month</th>
+        <th>Year</th>
+        <th>Description</th>
+        <th>Emp Name</th>
+        <th>Emp email</th>
+        <th>Emp contact</th>
+        <th>Emp age</th>
+        <th>Emp Address</th>
+        <th colspan="3">Action</th>
+    </tr>
+    {%for i in aclist%}
+    <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.salary}}</td>
+        <td>{{i.month}}</td>
+        <td>{{i.year}}</td>
+        <td>{{i.description}}</td>
+        <td>{{i.emp.name}}</td>
+        <td>{{i.emp.email}}</td>
+        <td>{{i.emp.contact}}</td>
+        <td>{{i.emp.age}}</td>
+        <td>{{i.emp.address}}</td>
+        <td><a href="acdelete?id={{i.id}}">Delete1</a></td>
+        <td><a href="acdelete2/{{i.id}}">Delete2</a></td>
+        <td><a href="acedit/{{i.id}}">Edit</a></td>
+    </tr>
+    {%endfor%}
+</table>
