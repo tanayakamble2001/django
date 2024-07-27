@@ -1,0 +1,27 @@
+{%extends 'sidebar.html'%}
+{%block body%}
+<h1>Income List</h1>
+
+<table border="1">
+    <tr>
+        <td>Id</td>
+        <td>Income</td>
+        <td>Income_Type</td>
+        <td>Income_Date</td>
+        <td>User</td>
+        <th colspan="2">Action</th>
+    </tr>
+    {%for i in inlist%}
+    <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.income}}</td>
+        <td>{{i.income_type}}</td>
+        <td>{{i.income_date}}</td>
+        <td>{{i.user}}</td>
+        <td><a href="incdelete/{{i.id}}">Delete</a></td>
+        <td><a href="incedit/{{i.id}}">Edit</a></td>
+    </tr>
+    {%endfor%}
+</table>
+
+{%endblock%}

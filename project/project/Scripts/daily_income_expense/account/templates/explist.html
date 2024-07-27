@@ -1,0 +1,27 @@
+{%extends 'sidebar.html'%}
+{%block body%}
+<h1>Expense List</h1>
+
+<table border="1">
+    <tr>
+        <td>Id</td>
+        <td>Expense</td>
+        <td>Expense_Type</td>
+        <td>Expense_Date</td>
+        <td>User</td>
+        <td colspan="2">Action</td>
+    </tr>
+    {%for i in exlist%}
+    <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.expense}}</td>
+        <td>{{i.expense_type}}</td>
+        <td>{{i.expense_date}}</td>
+        <td>{{i.user}}</td>
+        <td><a href="expdelete/{{i.id}}">Delete</a></td>
+        <td><a href="expedit/{{i.id}}">Edit</a></td>
+    </tr>
+    {%endfor%}
+</table>
+
+{%endblock%}
