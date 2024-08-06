@@ -23,6 +23,7 @@ def login_view(request):
         passw=request.POST.get('password')
         user=authenticate(request,username=uname,password=passw)
         if user is not None:
+            request.session['uid']=user.id
             login(request,user)
             return redirect('/')
         else:

@@ -13,7 +13,9 @@ def add_expense(request):
         return render(request,'addexpense.html',context)
     
 def expense_list(request):
-    exp=Expense.objects.all()
+    uid=request.session.get('uid')
+    #exp=Expense.objects.all()
+    exp=Expense.objects.filter(user=uid)
     context={'exlist':exp}
     return render(request,'explist.html',context)
 
