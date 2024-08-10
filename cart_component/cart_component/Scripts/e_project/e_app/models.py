@@ -10,7 +10,11 @@ class Category(models.Model):
     class Meta:
         db_table='category'
 
+    def __str__(self):
+        return self.category_name
+
 class Product(models.Model):
+    img=models.ImageField(upload_to='image',default='')
     p_name=models.CharField(max_length=30)
     p_price=models.IntegerField()
     p_description=models.TextField(max_length=300)

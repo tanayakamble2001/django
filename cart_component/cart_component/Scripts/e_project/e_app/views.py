@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate,login,logout
+from .models import Product,Cart,User
 
 # Create your views here.
 def home(request):
@@ -22,6 +23,7 @@ def login_view(request):
         passw=request.POST.get('password')
         user=authenticate(request,username=uname,password=passw)
         if user is not None:
+            request.session['uid']=user.id
             login(request,user)
             return redirect('/')
         else:
@@ -33,3 +35,26 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('/')
+
+
+def product_list(request):
+    pl=Product.objects.all()
+    context={'pl':pl}
+    return render(request,'productlist.html',context)
+
+def add_to_cart(request,pid):
+    product_id=Product.objects.get(id=pid)
+    uid=request.session.get('uid')
+    user_id=User.objects.get(id=uid)
+    c=Cart()
+    c.product=product_id
+    c.user=user_id
+    c.save()
+    return redirect('/plist')
+
+def cart_list(request):
+    uid=request.session.get('uid')
+    #user_id=User.objects.get(id=uid)
+    cl=Cart.objects.filter(user=uid)
+    context={'cl':cl}
+    return render(request,'cartlist.html',context)

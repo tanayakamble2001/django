@@ -24,4 +24,7 @@ urlpatterns = [
     path('add',v.add_user),
     path('login',v.login_view),
     path('logout',v.logout_view),
+    path('plist',v.product_list),
+    path('addtocart/<int:pid>',v.add_to_cart),
+    path('clist',v.cart_list),
 ]

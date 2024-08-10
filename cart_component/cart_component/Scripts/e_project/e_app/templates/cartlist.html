@@ -1,0 +1,30 @@
+{%include 'navbar.html'%}
+<h1>Cart List</h1>
+
+<table class="table">
+    <tr>
+        <td>Id</td>
+        <td>Product Name</td>
+        <td>Product Price</td>
+        <td>Product Quantity</td>
+        <td>User</td>
+        <td>Sub-Total</td>
+        <td>Action</td>
+    </tr>
+    {%for i in cl%}
+    <tr>
+        <td>{{i.product.id}}</td>
+        <td>{{i.product.p_name}}</td>
+        <td>{{i.product.p_price}}</td>
+        <td><input type="number" name="qty" value="1"></td>
+        <td>{{i.user.username}}</td>
+        <td><span></span></td>
+        <td><a href="">Delete</a></td>
+    </tr>
+    {%endfor%}
+
+    <tr>
+        <td><input type="submit" value="Place-Order"></td>
+        <td>Total-Bill: <span>50000</span></td>
+    </tr>
+</table>

@@ -21,7 +21,10 @@ from .import views as v
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('expense',v.add_expense,name='exps'),
-    path('expenselist',v.expense_list),
+    path('expenselist',v.expense_list,name='list2'),
     path('expdelete/<int:eid>',v.delete_exp),
     path('expedit/<int:eid>',v.edit_exp),
+
+    path('expense_search',v.exp_search,name='expense_search'),
+    path('ext/<str:ext2>',v.sort_by_expense_type,name='ext1'),
 ]
