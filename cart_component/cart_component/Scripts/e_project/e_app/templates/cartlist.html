@@ -1,4 +1,5 @@
 {%include 'navbar.html'%}
+{%load static%}
 <h1>Cart List</h1>
 
 <table class="table">
@@ -16,9 +17,9 @@
         <td>{{i.product.id}}</td>
         <td>{{i.product.p_name}}</td>
         <td>{{i.product.p_price}}</td>
-        <td><input type="number" name="qty" value="1"></td>
+        <td><input type="number" name="qty" value="1" min="1" onchange="updateSubtotal(this)"></td>
         <td>{{i.user.username}}</td>
-        <td><span></span></td>
+        <td><input type="text" class="subtotal" value="{{i.product.p_price}}"></td>
         <td><a href="">Delete</a></td>
     </tr>
     {%endfor%}
@@ -28,3 +29,9 @@
         <td>Total-Bill: <span>50000</span></td>
     </tr>
 </table>
+
+<script src="{%static 'js/static.js'%}"></script>
+
+<h1 id="total">Final Total:Rs. <span id="total-value">0.00/-</span></h1>
+<h1 id="gst">GST (18%): Rs. <span id="gst-value">0.00/-</span></h1>
+<h1 id="invoice-total">Invoice Total: Rs. <span id="invoice-total-value">0.00/-</span></h1>
